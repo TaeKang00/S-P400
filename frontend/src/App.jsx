@@ -23,8 +23,8 @@ function TopNav() {
       <div className="px-5 h-14 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <NavLink to="/list" className="flex items-baseline gap-2 hover:opacity-80 transition-opacity">
-            <span className="text-cyan text-lg font-bold tracking-tight">S&amp;P 400</span>
-            <span className="text-[10px] text-gray-500 font-medium">Mid-Cap Watchlist</span>
+            <span className="text-cyan text-lg font-bold tracking-tight">S&amp;P 500</span>
+            <span className="text-[10px] text-gray-500 font-medium">Large-Cap Watchlist</span>
           </NavLink>
           <nav className="flex gap-1">
             <NavLink to="/list" className={linkClass}>전체종목</NavLink>
@@ -65,6 +65,7 @@ export default function App() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
   const [lastRefreshedAt, setLastRefreshedAt] = useState(null);
   const [watchlistLastRefreshedAt, setWatchlistLastRefreshedAt] = useState(null);
+  const [watchlistTrigger, setWatchlistTrigger] = useState(0);
   const [q, setQ] = useState("");
 
   useEffect(() => {
@@ -114,7 +115,7 @@ export default function App() {
   }
 
   return (
-    <RefreshContext.Provider value={{ fullRefreshing, progress, yfinanceBlocked, refreshTrigger, lastRefreshedAt, handleFullRefresh, watchlistLastRefreshedAt, setWatchlistLastRefreshedAt, q, setQ }}>
+    <RefreshContext.Provider value={{ fullRefreshing, progress, yfinanceBlocked, refreshTrigger, lastRefreshedAt, handleFullRefresh, watchlistLastRefreshedAt, setWatchlistLastRefreshedAt, watchlistTrigger, setWatchlistTrigger, q, setQ }}>
       <div className="min-h-screen flex flex-col">
         <TopNav />
         <main className="flex-1">
